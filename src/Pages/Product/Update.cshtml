@@ -1,0 +1,79 @@
+﻿@page "{id}"
+@using ContosoCrafts.WebSite.Services
+@using ContosoCrafts.WebSite.Models
+@inject JsonFileProductService ProductService
+@model ContosoCrafts.WebSite.Pages.Product.UpdateModel
+
+@{
+    ViewData["Series Title"] = "Update page";
+}
+
+<style>
+    body {
+        background-image: url('https://i.postimg.cc/jj6RJRjP/logo7.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        opacity: 1;
+    }
+</style>
+
+<h1>Update series information</h1>
+
+<div class="container">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(x => x.Product.Id)
+
+        <div class="form-group">
+            <label asp-for="Product.SeriesTitle" class="control-label"></label>
+            <input asp-for="Product.SeriesTitle" class="form-control" placeholder="Enter Series Title" />
+            
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Summary" class="control-label"></label>
+            <input asp-for="Product.Summary" class="form-control" placeholder="Enter Summary" />
+            <span asp-validation-for="Product.Summary" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Episodes" class="control-label"></label>
+            <input asp-for="Product.Episodes" class="form-control" />
+            <span asp-validation-for="Product.Episodes" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.TrailerURL" class="control-label"></label>
+            <input asp-for="Product.TrailerURL" class="form-control" placeholder="Enter Trailer URL" />
+            <span asp-validation-for="Product.TrailerURL" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.StreamingServiceURL" class="control-label"></label>
+            <input asp-for="Product.StreamingServiceURL" class="form-control" placeholder="Enter Link to the Streaming Service" />
+            <span asp-validation-for="Product.StreamingServiceURL" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Image" class="control-label"></label>
+            <input asp-for="Product.Image" class="form-control" placeholder="" />
+            <span asp-validation-for="Product.Image" class="text-danger"></span>
+        </div>
+
+        <br />
+        <hr />
+        <br />
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

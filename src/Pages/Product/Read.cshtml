@@ -1,0 +1,71 @@
+﻿@page "{id}"
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
+@model ContosoCrafts.WebSite.Pages.Product.ReadModel
+
+@{
+    ViewData["SeriesTitle"] = "Read page";
+}
+<style>
+    body {
+        background-image: url('@Model.Product.Image');
+        background-repeat: no-repeat;
+        background-size: 100% 88%;
+        background-attachment: fixed;
+        background-position-x:right 0px;
+        background-position-y:25%
+    }
+</style>
+<h1 class="read-card-text">  Look through</h1>
+<div class ="container">
+    <h5 class=" read-card-seriestext" id="productSeriesTitle">@Model.Product.SeriesTitle</h5>
+
+    <p class="read-card-text">@Model.Product.Summary</p>
+
+    <p class="read-card-text">Number of Episodes: @Model.Product.Episodes </p>
+
+    <br />
+
+    <a class=" read-card-seriestext" href=@Model.Product.TrailerURL target="_blank">Click here to watch the trailer!!</a>
+
+    <br />
+    <br />
+
+    <a class=" read-card-seriestext" href=@Model.Product.StreamingServiceURL target="_blank">Stream "@Model.Product.SeriesTitle" Online Now!! </a>
+
+    <br/>
+    <br/>
+
+    <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary">Update</a> &nbsp;&nbsp;
+
+    <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>&nbsp;&nbsp;
+
+
+</div>
+
+@{
+    // If there are Comments, show them.
+    if (Model.Product.CommentList.Count > 0)
+    {
+    <br />
+    <br />
+
+    <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style="color:orangered">SeriesTitle</th>
+                                            <th style="color:orangered;">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var comment in Model.Product.CommentList)
+                {
+                                            <tr>
+                                                <td style="color:whitesmoke;">@comment.Comment</td>
+                                                <td><a asp-page="DeleteComment" asp-route-CommentId="@comment.Id" asp-route-ProductId="@Model.Product.Id">Delete</a></td>
+                                            </tr>
+                }
+                                    </tbody>
+    </table>
+    }
+}

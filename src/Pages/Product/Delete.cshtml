@@ -1,0 +1,70 @@
+﻿@page "{id}"
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
+@model ContosoCrafts.WebSite.Pages.Product.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete page";
+}
+
+<style>
+    body {
+        background-image: url('https://i.postimg.cc/jj6RJRjP/logo7.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        opacity: 1;
+    }
+</style>
+
+<h1>Delete</h1>
+
+<div class="container">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(x => x.Product.Id)
+
+        <div class="form-group">
+            <label asp-for="Product.SeriesTitle" class="control-label"></label>
+            <input asp-for="Product.SeriesTitle" class="form-control" disabled />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Summary" class="control-label"></label>
+            <input asp-for="Product.Summary" class="form-control" disabled />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Episodes" class="control-label"></label>
+            <input asp-for="Product.Episodes" class="form-control" disabled />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.TrailerURL" class="control-label"></label>
+            <input asp-for="Product.TrailerURL" class="form-control" disabled />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.StreamingServiceURL" class="control-label"></label>
+            <input asp-for="Product.StreamingServiceURL" class="form-control" disabled />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Image" class="control-label"></label>
+            <input asp-for="Product.Image" class="form-control" disabled />
+        </div>
+
+        <h5 class="delete-card-text">Confirm delete of this item</h5>
+
+        <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

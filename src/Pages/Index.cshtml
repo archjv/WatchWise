@@ -1,0 +1,33 @@
+﻿@page
+@using ContosoCrafts.WebSite.Components
+@model IndexModel
+@{
+    ViewData["SeriesTitle"] = "Home page";
+}
+@*<h1 style ="color:orangered; font-style:italic;"> PopcornFlix </h1>*@
+<style>
+    body 
+    {
+        /*C: \Users\Admin\source\repos\Sea_Sharp8\src\Icons\SeaSharphLogo.jpeg*/
+        background-image: url('https://i.postimg.cc/YCZdVx2j/Sea-Sharph-Logo.jpg');
+        background-repeat:no-repeat;
+        background-size:100% 100%;
+        background-attachment: fixed
+    }
+</style>
+
+<div class="search">
+    <form method="get" class="search-form">
+        <input class="form-control valid" asp-for="SearchString" placeholder="Type here to search series" />
+        <button class="btnfc btn-success" type="submit">Filter</button>
+    </form>
+    <form method="get" class="reset-form">
+        <button class="btnfc btn-danger" type="submit">Clear</button>
+    </form>
+</div>
+
+
+@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered, new { Products = Model.Products }))
+
+
+<script src="_framework/blazor.server.js"></script>

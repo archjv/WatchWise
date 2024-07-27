@@ -1,0 +1,349 @@
+﻿.checked {
+    color: orange;
+}
+
+.fa-star {
+    cursor: pointer;
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0px;
+    padding: 0px;
+}
+
+.search-form {
+    width: 80%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.reset-form {
+    width: auto;
+    display: flex;
+    justify-content: start;
+}
+
+.search-input {
+    width: 85%;
+    border: 3px solid #00B4CC;
+    padding: 5px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+    box-shadow: 1px 3px 10px grey;
+    backdrop-filter: blur(5px) saturate(10%);
+    background: rgba(137, 137, 137, 0.3);
+}
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+.card-columns .card:hover .card-img {
+    opacity: 1;
+    -webkit-transform-style: preserve-3d;
+}
+
+.card-text {
+    color: #363232;
+}
+
+ .card-img {
+    height: 467px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    opacity: .8;
+}
+
+.read-card-img {
+    height: 500px;
+    width: 600px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    opacity: .8;
+    background-color: red;
+}
+
+.read-card-text {
+    width: auto;
+    color: rgba(0,0,0,1);
+    background: rgba(250, 253, 250, 0.75);
+    display: inline-block;
+}
+
+.read-card-seriestext {
+    width: auto;
+    color: rgba(255,69,0,1);
+    display: inline-block;
+    background: rgba(250, 253, 250, 0.75);
+}
+
+.read-card-space {
+    width: 10px;
+    color: orangered;
+    display: inline-block;
+    opacity:1
+}
+
+.modal .card-img {
+    height: 500px;
+    vertical-align: bottom;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.delete-card-text {
+    width: auto;
+    color: orangered;
+    display: inline-block;
+    opacity: 1
+}
+
+.SeriesTitle {
+    color: orangered;
+}
+
+.card-footer {
+    background: #949392;
+}
+
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    /*background-color: transparent;*/
+    width: 360px;
+    height: 500px;
+    /*border: 1px solid #f1f1f1;*/
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+    .flip-card > hr {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .flip-card > .list-group:first-child .list-group-item:first-child {
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+    }
+
+    .flip-card > .list-group:last-child .list-group-item:last-child {
+        border-bottom-right-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+    }
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.flip-card-img {
+    height: 500px;
+    vertical-align: bottom;
+    background-position: center;  /*Center the image*/ 
+    background-repeat: no-repeat;  /*Do not repeat the image */
+    background-size: cover;  /*Resize the background image to cover the entire container */
+    opacity: .8;
+}
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+    background-color: antiquewhite;
+    color: orangered;
+    transform: rotateY(180deg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+a.navbar-brand {
+    white-space: normal;
+    font-family: Impact, cursive;
+    font-size: xx-large;
+    text-align: center;
+    word-break: break-all;
+}
+
+.card-columns .card {
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 576px) {
+    .flip-card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+        -webkit-column-gap: 1.25rem;
+        -moz-column-gap: 1.25rem;
+        column-gap: 1.25rem;
+        orphans: 1;
+        widows: 1;
+    }
+
+        .flip-card-columns .card {
+            display: inline-block;
+            width: 100%;
+        }
+}
+
+.flip-card-columns {
+    background-color: transparent;
+    width: 400px;
+    height: 500px;
+    perspective: 500px;
+}
+
+
+/* Provide sufficient contrast against white background */
+a{
+    color: #db4b4b;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #db4b4b;
+    border-color: #db4b4b;
+}
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #f57373;
+        border-color: #f57373;
+    }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #db4b4b;
+    border-color: #db4b4b;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+p {
+    font-family: 'Nunito', sans-serif;
+    font-weight:bold;
+}
+
+h1 {
+    font-family: 'Impact';
+}
+
+.nav-link {
+    font-family: 'Impact';
+}
+
+ul {
+    font-family: 'Nunito', sans-serif;
+}
+
+figure {
+    float: left;
+    width: 277.5px;
+    height: 270px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    font-family: 'Nunito', sans-serif;
+}
+/*Backgrounds*/
+.bg-navbar {
+    background-color: #de4d40;
+    background-image: linear-gradient(90deg, #de4d40 0%, #323438 100%);
+    height: 80px;
+}
+
+.bg-footer {
+    background-color: #323438;
+    background-image: linear-gradient(90deg, #323438 0%, #de4d40 100%);
+    height: 80px;
+}

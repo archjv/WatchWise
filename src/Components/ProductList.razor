@@ -1,0 +1,98 @@
+@using ContosoCrafts.WebSite.Models
+@using ContosoCrafts.WebSite.Services
+@using Microsoft.AspNetCore.Components.Web
+@inject JsonFileProductService ProductService
+
+
+
+<div class="container-fluid">
+    @{
+        // Getting the series information
+        var productList = ProductService.GetAllData();
+
+        /// <summary>
+        /// Change the grouping sort order to be
+        /// Order by ProductType
+        /// Then order by ProductList Alphabetic within the Product data set
+        /// Group by the Enum
+        /// </summary>
+
+        // Order the list alphabetical
+        var productListGroup = Products.OrderBy(m => m.SeriesTitle);
+
+        // Checking if the string entered in matched with any of the tv series names
+        if (productListGroup.Any())
+        {
+                <hr />
+
+            //<h2>@productType.DisplayName()</h2>
+                <div class="row">
+
+                    <!-- Displaying all the tv series that matches the user input in filter search bar -->
+                    @foreach (var product in productListGroup)
+                {
+                        <div class="flip-card">
+
+                            <!-- Displays name and image of tv series -->
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+
+                                    <!-- Title of tv series -->
+                                    <h5 class="card-seriestitle">@product.SeriesTitle</h5>
+
+                                    <!-- Image of tv series-->
+                                    <img class="card-img" style="background-image: url('@product.Image');">
+                                </div>
+
+                                <!-- Displays summary and number of episodes of tv series -->
+                                <div class="flip-card-back" style="background-image: url('@product.Image');opacity:0.6;">
+
+                                    <!-- Title of tv series -->
+                                    <h5 class="read-card-seriestext">@product.SeriesTitle</h5>
+
+                                    <!-- Summary of tv series -->
+                                    <p class="read-card-text">@product.Summary</p>
+
+                                    <!-- Number of episodes in tv series-->
+                                    <p class="read-card-text">Number of Episodes: @product.Episodes </p>
+                                    <br />
+
+                                    <div>
+                                        <!-- Link to the trailer of tv series-->
+                                        <a class=" read-card-seriestext" href=@product.TrailerURL target="_blank">Click here to watch the trailer!!</a>
+                                    </div>
+                                    <br />
+
+                                    <div>
+                                        <!-- Link to stream the tv series online-->
+                                        <a class=" read-card-seriestext" href=@product.StreamingServiceURL target="_blank">Stream "@product.SeriesTitle" Online Now!!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <h5 class="read-card-space"></h5>
+                }
+                </div>
+        }
+
+    }
+</div>
+
+@code
+{
+    //Create a variable for selected product
+    ProductModel selectedProduct;
+
+    //Create a variable for selected product ID
+    string selectedProductId;
+
+    //Create a parameter for razor page
+    [Parameter]
+    public IEnumerable<ProductModel> Products { get; set; }
+
+}
+
+<!-- Linked CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+

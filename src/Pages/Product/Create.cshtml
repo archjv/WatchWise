@@ -1,0 +1,80 @@
+﻿@page
+@using ContosoCrafts.WebSite.Services
+@using ContosoCrafts.WebSite.Models
+@inject JsonFileProductService ProductService
+@model ContosoCrafts.WebSite.Pages.Product.CreateModel
+
+
+@{
+    ViewData["SeriesTitle"] = "Create page";
+}
+
+<style>
+    body {
+        background-image: url('https://i.postimg.cc/jj6RJRjP/logo7.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        opacity: 1;
+    }
+</style>
+
+<h1>Create</h1>
+
+<div class="container">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(x => x.Product.Id)
+
+        <div class="form-group">
+            <label class="control-label" for="Product_Title">Series Title</label>
+            <input class="form-control valid" type="text" data-val="true" data-val-length="The SeriesTitle should have a length of more than 1 and less than 35" data-val-length-max="35" data-val-length-min="1" id="Product_Title" maxlength="35" name="Product.SeriesTitle" aria-describedby="Product_Title-error" aria-invalid="false" required placeholder="Enter Series Title">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Product.SeriesTitle" data-valmsg-replace="true"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="Product_Summary">Summary</label>
+            <input class="form-control" type="text" id="Product_Summary" name="Product.Summary" required placeholder="Enter Summary" maxlength="600">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Product.Summary" data-valmsg-replace="true"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="Product_Episodes">Number of Episodes</label>
+            <input class="form-control" type="number" data-val="true" data-val-range="Number of Episodes must be from 1 to 999." data-val-range-max="999" data-val-range-min="1" data-val-required="Number of Episodes is required" id="Product_Episodes" name="Product.Episodes" value="0">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Product.Episodes" data-valmsg-replace="true"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="Product_Url">Trailer URL</label>
+            <input class="form-control" type="url" id="Product_Url" name="Product.TrailerURL" required placeholder="Enter Trailer URL">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Product.TrailerURL" data-valmsg-replace="true"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="Product_Link">Link to Streaming Service</label>
+            <input class="form-control" type="url" id="Product_Link" name="Product.StreamingServiceURL" required placeholder="Enter Link to the Streaming Service">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Product.StreamingServiceURL" data-valmsg-replace="true"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="Product_Image">Image</label>
+            <input class="form-control" type="text" id="Product_Image" name="Product.Image" required placeholder="Enter Image Url">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Product.Image" data-valmsg-replace="true"></span>
+        </div>
+
+        <br />
+        <hr />
+        <br />
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
